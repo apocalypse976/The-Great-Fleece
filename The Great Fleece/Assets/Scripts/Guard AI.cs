@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +8,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] private List<Transform> _waypoints;
     [SerializeField] private int _currentIndex;
     private NavMeshAgent _agent;
-    private bool _reverse;
+    private bool _reverse=true;
     private bool _targetReached;
 
     private void Start()
@@ -32,10 +31,11 @@ public class GuardAI : MonoBehaviour
 
                 if(_reverse)
                 {
+                    Debug.Log("reverse");
                     StartCoroutine(IdleRoutine());
                     if (_currentIndex == 0)
                     {
-                        _currentIndex=0;
+                        _currentIndex =0;
                         _reverse = false;
                     }
                    
@@ -43,10 +43,13 @@ public class GuardAI : MonoBehaviour
                
                 else if(!_reverse)
                 {
+                    Debug.Log("!reverse");
                     StartCoroutine(IdleRoutine());
-                    if (_currentIndex == _waypoints.Count)
+                    if (_currentIndex == _waypoints.Count||_currentIndex==1)
                     {
-                      _currentIndex -= 2;
+                         StartCoroutine(IdleRoutine());
+                        _currentIndex =0 ;
+
                         _reverse = true;
                     }
                 }
@@ -59,16 +62,23 @@ public class GuardAI : MonoBehaviour
     IEnumerator IdleRoutine()
     {
         yield return new WaitForSeconds(3f);
-
-        if (_reverse&& _currentIndex==_waypoints.Count)
+        Debug.Log("Coroutine");
+        if (_reverse )
         {
-            _currentIndex -= 2;
+            if (_currentIndex == _waypoints.Count)
+            {
+                _targetReached = false;
+                _currentIndex -= 2;
+                
+            }
+            
 
         }
-        else if(!_reverse)
+        else if(!_reverse && _currentIndex==0)
         {
           _currentIndex++;
+            _targetReached = false;
         }
-        _targetReached = false;
+
     }
 }
