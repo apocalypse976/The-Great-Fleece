@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraTrigger : MonoBehaviour
 {
     [SerializeField] private Transform _myCam;
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")
