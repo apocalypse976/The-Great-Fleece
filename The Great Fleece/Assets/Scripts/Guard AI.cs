@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using static Cinemachine.CinemachinePath;
 
 public class GuardAI : MonoBehaviour
 {
@@ -46,14 +44,14 @@ public class GuardAI : MonoBehaviour
 
 
         yield return new WaitForSeconds(3);
-        if (_currentIndex == 0 && distance < 3)
+        if (_currentIndex == 0 && distance <4)
         {
             _currentIndex++;
             _agent.SetDestination(_waypoints[_currentIndex].position);
 
         }
 
-        else if (_currentIndex == _waypoints.Count - 1 && distancetwo < 3)
+        else if (_currentIndex == _waypoints.Count - 1 && distancetwo < 4)
         {
             _currentIndex = 0;
             _agent.SetDestination(_waypoints[_currentIndex].position);
@@ -71,20 +69,20 @@ public class GuardAI : MonoBehaviour
     
        
             yield return new WaitForSeconds(3);
-            if (_currentIndex == 0 && distance < 3)
+            if (_currentIndex == 0 && distance < 4)
             {
                 _currentIndex++;
                 _agent.SetDestination(_waypoints[_currentIndex].position);
             }
 
-            else if (_currentIndex == 1 && distance1 < 3)
+            else if (_currentIndex == 1 && distance1 < 4)
             {
 
                 _currentIndex = 2;
                 _agent.SetDestination(_waypoints[_currentIndex].position);
 
             }
-            else if (_currentIndex == _waypoints.Count-1 && distance2 < 3)
+            else if (_currentIndex == _waypoints.Count-1 && distance2 < 4)
             {
                 _currentIndex = 0;
                 _agent.SetDestination(_waypoints[_currentIndex].position);
