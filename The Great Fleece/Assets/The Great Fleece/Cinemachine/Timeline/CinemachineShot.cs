@@ -30,9 +30,9 @@ namespace Cinemachine.Timeline
             driver.AddFromName<Transform>("m_LocalRotation.y");
             driver.AddFromName<Transform>("m_LocalRotation.z");
 
-            driver.AddFromName<Camera>("field of view");
-            driver.AddFromName<Camera>("near clip plane");
-            driver.AddFromName<Camera>("far clip plane");
+            driver.AddFromName<UnityEngine.Camera>("field of view");
+            driver.AddFromName<UnityEngine.Camera>("near clip plane");
+            driver.AddFromName<UnityEngine.Camera>("far clip plane");
         }
     }
 }

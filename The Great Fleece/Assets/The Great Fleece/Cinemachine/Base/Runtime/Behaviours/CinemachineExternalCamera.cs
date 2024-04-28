@@ -8,18 +8,18 @@ namespace Cinemachine
     /// Just add it as a component alongside an existing Unity Camera component.
     /// </summary>
     [DocumentationSorting(14, DocumentationSortingAttribute.Level.UserRef)]
-    [RequireComponent(typeof(Camera)), DisallowMultipleComponent, ExecuteInEditMode]
+    [RequireComponent(typeof(UnityEngine.Camera)), DisallowMultipleComponent, ExecuteInEditMode]
     [AddComponentMenu("Cinemachine/CinemachineExternalCamera")]
     public class CinemachineExternalCamera : CinemachineVirtualCameraBase
     {
-        private Camera m_Camera;
+        private UnityEngine.Camera m_Camera;
         private CameraState m_State;
 
         /// <summary>Caches the camera component</summary>
         protected override void OnEnable()
         {
             base.OnEnable();
-            m_Camera = GetComponent<Camera>();
+            m_Camera = GetComponent<UnityEngine.Camera>();
         }
 
         /// <summary>Get the CameraState, as we are able to construct one from the Unity Camera</summary>

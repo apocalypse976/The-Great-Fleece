@@ -9,8 +9,8 @@ public class CameraTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Camera.main.transform.position=_myCam.transform.position;
-            Camera.main.transform.rotation=_myCam.transform.rotation;
+            UnityEngine.Camera.main.transform.position= _myCam.transform.position;
+            UnityEngine.Camera.main.transform.rotation= _myCam.transform.rotation;
         }
     }
 }

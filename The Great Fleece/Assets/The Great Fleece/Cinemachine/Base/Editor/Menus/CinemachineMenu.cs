@@ -120,11 +120,11 @@ namespace Cinemachine.Editor
                     typeof(CinemachineBrain)) as CinemachineBrain[];
             if (brains == null || brains.Length == 0)
             {
-                Camera cam = Camera.main;
+                UnityEngine.Camera cam = UnityEngine.Camera.main;
                 if (cam == null)
                 {
-                    Camera[] cams = UnityEngine.Object.FindObjectsOfType(
-                            typeof(Camera)) as Camera[];
+                    UnityEngine.Camera[] cams = UnityEngine.Object.FindObjectsOfType(
+                            typeof(UnityEngine.Camera)) as UnityEngine.Camera[];
                     if (cams != null && cams.Length > 0)
                         cam = cams[0];
                 }

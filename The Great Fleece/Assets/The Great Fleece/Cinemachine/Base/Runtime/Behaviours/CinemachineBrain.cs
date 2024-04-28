@@ -21,7 +21,7 @@ namespace Cinemachine
     /// Note that a camera cut is just a zero-time blend.
     /// </summary>
     [DocumentationSorting(0, DocumentationSortingAttribute.Level.UserRef)]
-    [RequireComponent(typeof(Camera)), ExecuteInEditMode, DisallowMultipleComponent]
+    [RequireComponent(typeof(UnityEngine.Camera)), ExecuteInEditMode, DisallowMultipleComponent]
     [AddComponentMenu("Cinemachine/CinemachineBrain")]
     [SaveDuringPlay]
     public class CinemachineBrain : MonoBehaviour
@@ -83,16 +83,16 @@ namespace Cinemachine
         /// Get the Unity Camera that is attached to this GameObject.  This is the camera
         /// that will be controlled by the brain.
         /// </summary>
-        public Camera OutputCamera
+        public UnityEngine.Camera OutputCamera
         {
             get
             {
                 if (m_OutputCamera == null)
-                    m_OutputCamera = GetComponent<Camera>();
+                    m_OutputCamera = GetComponent<UnityEngine.Camera>();
                 return m_OutputCamera;
             }
         }
-        private Camera m_OutputCamera = null; // never use directly - use accessor
+        private UnityEngine.Camera m_OutputCamera = null; // never use directly - use accessor
 
         /// <summary>
         /// Because the PostProcessing package is not guaranteed to be present,
@@ -111,7 +111,7 @@ namespace Cinemachine
         /// Returns: True if PostFX were applied, false otherwise.
         /// </summary>
         public delegate bool PostFXHandlerDelegate(
-            Camera dest, ICinemachineCamera vcam, CameraState state);
+            UnityEngine.Camera dest, ICinemachineCamera vcam, CameraState state);
 
         /// <summary>
         /// Because the postFX package is not guaranteed to be present,
@@ -709,7 +709,7 @@ namespace Cinemachine
         /// <summary>
         /// Apply a cref="CameraState"/> to an a cref="Camera"/>
         /// </summary>
-        private void PushStateToUnityCamera(CameraState state, Camera cam, ICinemachineCamera vcam)
+        private void PushStateToUnityCamera(CameraState state, UnityEngine.Camera cam, ICinemachineCamera vcam)
         {
             cam.transform.position = state.FinalPosition;
             cam.transform.rotation = state.FinalOrientation;

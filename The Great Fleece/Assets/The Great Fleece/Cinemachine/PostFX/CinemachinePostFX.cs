@@ -82,7 +82,7 @@ namespace Cinemachine.PostFX
         }
 
         // CinemachineBrain callback used when this behaviour is on the Unity Camera
-        bool PostFXHandler(Camera dest, ICinemachineCamera vcam, CameraState state)
+        bool PostFXHandler(UnityEngine.Camera dest, ICinemachineCamera vcam, CameraState state)
         {
             if (enabled && mBrain != null && mPostProcessingBehaviour != null)
             {
