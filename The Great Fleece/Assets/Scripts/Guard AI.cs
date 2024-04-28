@@ -7,10 +7,12 @@ using static Cinemachine.CinemachinePath;
 
 public class GuardAI : MonoBehaviour
 {
+    [HideInInspector] public bool coinTossed;
     [SerializeField] private List<Transform> _waypoints;
     [SerializeField] private int _currentIndex;
     private NavMeshAgent _agent;
     private Animator _anim;
+  
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class GuardAI : MonoBehaviour
     private void Update()
     {
         Animations();
-        if (_waypoints.Count > 0 && _waypoints[_currentIndex] != null)
+        if (_waypoints.Count > 0 && _waypoints[_currentIndex] != null&&!coinTossed)
         {
             if (_waypoints.Count == 2 && _waypoints[_currentIndex] != null)
             {
