@@ -19,12 +19,12 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Update()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
     public void AudioPlay(AudioClip _Audio)
     {
         _audio.PlayOneShot(_Audio);
+    }
+    public void AudioStop()
+    {
+        _audio.Stop();
     }
 }

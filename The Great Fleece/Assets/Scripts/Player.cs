@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -76,8 +77,7 @@ public class Player : MonoBehaviour
             gurdsAI.coinTossed = true;
         }
         
-
-
-    }
+     }
+   
 }
 
